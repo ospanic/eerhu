@@ -11,7 +11,6 @@
 
 #include "ble_midi.h"
 #include "key.h"
-#include "ec11.h"
 
 extern void pwm_c_init(void);
 void app_main(void)
@@ -26,8 +25,7 @@ void app_main(void)
     }
     ESP_ERROR_CHECK( ret );
 
-    ble_midi_init();
-    key_init();
-    //ec11_init();
-    pwm_c_init();
+    ble_midi_init(); //初始化蓝牙MIDI协议栈
+    key_init(); //初始化16个音符按键及1个转调按键
+    pwm_c_init(); //初始化EC11编码器驱动及LED灯
 }

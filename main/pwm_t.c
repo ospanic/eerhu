@@ -85,6 +85,28 @@ void leds_init()
     strip = led_strip_new_rmt_ws2812(&strip_config);
 
     ESP_ERROR_CHECK(strip->clear(strip, 100));
+
+    strip->set_pixel(strip, 0, 10, 10, 10); //LED逐个闪烁
+    strip->refresh(strip, 100);
+    vTaskDelay(20);
+    strip->clear(strip, 100);
+
+    strip->set_pixel(strip, 1, 10, 10, 10);
+    strip->refresh(strip, 100);
+    vTaskDelay(20);
+    strip->clear(strip, 100);
+
+    strip->set_pixel(strip, 2, 10, 10, 10);
+    strip->refresh(strip, 100);
+    vTaskDelay(20);
+    strip->clear(strip, 100);
+
+    strip->set_pixel(strip, 3, 10, 10, 10);
+    strip->refresh(strip, 100);
+    vTaskDelay(20);
+    strip->clear(strip, 100);
+
+
 }
 static uint8_t midi_vol[] = {0x88, 0x88, 0xB0 , 0x07, 0};
 
